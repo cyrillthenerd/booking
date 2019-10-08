@@ -37,7 +37,6 @@ def booking_departure_destination():
         return destination
     else:
         print("You entered the wrong number")
-    loop
 
 
 def booking_departure_time():
