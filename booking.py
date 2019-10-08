@@ -37,6 +37,7 @@ def booking_departure_destination():
         return destination
     else:
         print("You entered the wrong number")
+    loop
 
 
 def booking_departure_time():
@@ -52,8 +53,23 @@ target_destination = booking_departure_destination()
 departure_time_list()
 target_departure = booking_departure_time()
 
+username = str(input("Hi there! Please type in your name so we know who you are."))
+
+if not username:
+    print("False input...")
+
+passport_number = str(input("Enter your passport number here:"))
+
 print("You have chosen to fly to "+ destination[target_destination] + " and your flight leaves at " + departure_time[target_departure] + " and costs " + flight_prices[target_departure] + "$.")
 
+f= open("Booking_Reference.txt","w+")
 
+f.write("Hello " + username + " we are happy to give you confirmation that you booked a trip to " + destination[target_destination] + " at " + departure_time[target_departure])
+f.write("\nBelow you will find a summary of your trip.")
+f.write("\nYour name: " + username)
+f.write("\nYour passport number: " + passport_number)
+f.write("\nTravel destination: " + destination[target_destination])
+f.write("\nDeparture flight time: " + departure_time[target_departure])
+f.write("\nTotal cost of your trip: " + flight_prices[target_departure] + "$.")
 
-
+print("Thank you for booking with Fuck You Airlines!")
