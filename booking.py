@@ -16,6 +16,13 @@ departure_time = {"1": "8:00",
                 "3": "16:00",
                 "4": "20:00",}
 
+#Flight Prices
+flight_prices = {"1": "250",
+                "2": "200",
+                "3": "180",
+                "4": "165",}
+
+
 def departure_destination_list():
     for keys, values in destination.items():
         print(keys, values)
@@ -45,6 +52,8 @@ target_destination = booking_departure_destination()
 departure_time_list()
 target_departure = booking_departure_time()
 
+print("You have chosen to fly to "+ destination[target_destination] + " and your flight leaves at " + departure_time[target_departure] + " and costs " + flight_prices[target_departure] + "$.")
 
-print("You have chosen to fly to "+ destination[target_destination] + " and your flight leaves at " + departure_time[target_departure])
+
+
 
