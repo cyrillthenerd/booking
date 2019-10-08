@@ -1,4 +1,6 @@
 # Simple python booking app
+import random
+
 print("Starting lossless booking engine")
 
 #Destinations
@@ -61,9 +63,13 @@ passport_number = str(input("Enter your passport number here:"))
 
 print("You have chosen to fly to "+ destination[target_destination] + " and your flight leaves at " + departure_time[target_departure] + " and costs " + flight_prices[target_departure] + "$.")
 
+number  = random.randrange(10000, 99999)
+number = str(number)
+
 f= open("Booking_Reference.txt","w+")
 
 f.write("Hello " + username + " we are happy to give you confirmation that you booked a trip to " + destination[target_destination] + " at " + departure_time[target_departure])
+f.write("\nThis is your booking number: " + number)
 f.write("\nBelow you will find a summary of your trip.")
 f.write("\nYour name: " + username)
 f.write("\nYour passport number: " + passport_number)
