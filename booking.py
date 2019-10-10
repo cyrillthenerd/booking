@@ -77,27 +77,15 @@ print("You have chosen to fly to "+ destination[target_destination] + " and your
 number  = random.randrange(10000, 99999)
 number = str(number)
 
+#----------------------------------------
+
 # Enter values into a DB. If DB not created yet, create DB.
-
-cursor.execute("CREATE TABLE IF NOT EXISTS contacts (name TEXT, phone INTEGER, email TEXT)")
-cursor.execute("INSERT INTO contacts(name, phone, email) VALUES('Tim', 6545678, %s)", name)
-cursor.execute("INSERT INTO contacts VALUES('Brian', 1234, 'brian@myemail.com')")
-
+create_table = "CREATE TABLE IF NOT EXISTS bookings (username TEXT, passportnumber INTEGER, bookingnumber INTEGER, destination TEXT, time TEXT, cost INTEGER)"
+add_placeholders = "INSERT INTO bookings (username, passportnumber, bookingnumber, destination, time, cost) VALUES (%s, %s, %s, %s, %s, %s)"
 
 cursor = db.cursor()
-cursor.execute("SELECT * FROM contacts")
-
-print(cursor.fetchall())
-
-#print(cursor.fetchone())
-#print(cursor.fetchone())
-#print(cursor.fetchone())
-
-for name, phone, email in cursor:
-    print(name)
-    print(phone)
-    print(email)
-    print("-" * 20)
+cursor.execute(create_table)
+cursor.execute(add_placeholders, (username, passport_number, number, destination[target_destination], departure_time[target_departure],flight_prices[target_departure]))
 
 cursor.close()
 db.commit()
@@ -117,5 +105,7 @@ f.write("\nYour passport number: " + passport_number)
 f.write("\nTravel destination: " + destination[target_destination])
 f.write("\nDeparture flight time: " + departure_time[target_departure])
 f.write("\nTotal cost of your trip: " + flight_prices[target_departure] + "$.")
+
+# Close the program with message to the user
 
 print("Thank you for booking with Fuck You Airlines!")
