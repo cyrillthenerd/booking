@@ -1,4 +1,4 @@
-# Simple python booking app
+# Simple python booking app V2
 # Author: Cyrill
 
 # Importing libraries
