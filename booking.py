@@ -1,9 +1,20 @@
 # Simple python booking app
-import random
+# Author: Cyrill
 
+# Importing libraries
+import random
+import pymysql
+
+# Open MySQL Server connection and start a cursor.
+db = pymysql.connect("localhost", "cyrill", "Banane99%", "sys")
+cursor = db.cursor()
+
+#--------------------------------------------
+
+# Start booking flow
 print("Starting lossless booking engine")
 
-#Destinations
+# Destinations
 destination = {"1": "London",
                 "2": "Paris",
                 "3": "Amsterdam",
@@ -12,13 +23,13 @@ destination = {"1": "London",
                 "6": "Manila",
                 "7": "Singapore"}
 
-#Departure Times
+# Departure Times
 departure_time = {"1": "8:00",
                 "2": "12:00",
                 "3": "16:00",
                 "4": "20:00",}
 
-#Flight Prices
+# Flight Prices
 flight_prices = {"1": "250",
                 "2": "200",
                 "3": "180",
@@ -65,6 +76,36 @@ print("You have chosen to fly to "+ destination[target_destination] + " and your
 
 number  = random.randrange(10000, 99999)
 number = str(number)
+
+# Enter values into a DB. If DB not created yet, create DB.
+
+cursor.execute("CREATE TABLE IF NOT EXISTS contacts (name TEXT, phone INTEGER, email TEXT)")
+cursor.execute("INSERT INTO contacts(name, phone, email) VALUES('Tim', 6545678, %s)", name)
+cursor.execute("INSERT INTO contacts VALUES('Brian', 1234, 'brian@myemail.com')")
+
+
+cursor = db.cursor()
+cursor.execute("SELECT * FROM contacts")
+
+print(cursor.fetchall())
+
+#print(cursor.fetchone())
+#print(cursor.fetchone())
+#print(cursor.fetchone())
+
+for name, phone, email in cursor:
+    print(name)
+    print(phone)
+    print(email)
+    print("-" * 20)
+
+cursor.close()
+db.commit()
+db.close()
+
+
+# Open File and write booking values into file
+
 
 f= open("Booking_Reference.txt","w+")
 
