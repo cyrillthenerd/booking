@@ -46,6 +46,8 @@ def exitcode():
     else:
         print("Wrong input Motherfucker!")
 
+print("-" * 150)
+
 exitcode()
 
 #End of Tool
