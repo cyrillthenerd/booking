@@ -23,6 +23,7 @@ destination = {"1": "London",
                 "6": "Manila",
                 "7": "Singapore"}
 
+
 # Departure Times
 departure_time = {"1": "8:00",
                 "2": "12:00",
