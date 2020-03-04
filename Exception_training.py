@@ -3,13 +3,15 @@
 #This is a training file to challenge ourselves
 #Todays challenge will be to know how to to error handling.
 
-number = input("Please enter a number:")
+number = input("Please enter your age:")
 
 
 try:
-  result = int(number + number)
-  print(result)
+  number >= 18
+  print("Welcome to our website!")
+  number < 18
+  print("Sorry but you are not allowed to enter this website!")
 except:
-  print("Something went wrong")
-finally:
-  print("The 'try except' is finished")
+  print("This is not a valid age you entered")
+
+print(number + " is the age you provided us with")
