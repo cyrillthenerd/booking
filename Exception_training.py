@@ -3,8 +3,12 @@
 #This is a training file to challenge ourselves
 #Todays challenge will be to know how to to error handling.
 
+number = input("Please enter a number:")
+
+
 try:
-  print("x")
+  result = int(number + number)
+  print(result)
 except:
   print("Something went wrong")
 finally:
