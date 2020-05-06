@@ -1,17 +1,29 @@
-#Author: Cyrill
-#Version: V0.1
-#This is a training file to challenge ourselves
-#Todays challenge will be to know how to to error handling.
+# Author: Cyrill
+# Version: V0.1
+# This is a training file to challenge ourselves
+# Today's challenge will be to know how to to error handling.
 
-number = input("Please enter your age:")
+number = 0
+checker = True
 
 
-try:
-  number >= 18
-  print("Welcome to our website!")
-  number < 18
-  print("Sorry but you are not allowed to enter this website!")
-except:
-  print("This is not a valid age you entered")
+def inputer():
+    try:
+        number = int(input('Enter your age: '))
+    except:
+        print('You have entered an invalid value.')
+        exit()
+    return number
 
-print(number + " is the age you provided us with")
+def agecheck():
+    if number >= 18:
+        checker = True
+    elif number <= 17:
+        checker = False
+    return checker
+
+inputer()
+oldenough = agecheck()
+print("Are you old enough? " + str(oldenough))
+
+
